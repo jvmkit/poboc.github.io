@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[宝贝]]></title>
+      <title><![CDATA[有多少爱可以重来]]></title>
       <url>%2F2016%2F11%2F25%2Fm1%2F</url>
-      <content type="text"><![CDATA[]]></content>
+      <content type="text"><![CDATA[var aplayer0 = new APlayer({element: document.getElementById("aplayer0"),narrow: false,autoplay: true,showlrc: 0,music : {title: "有多少爱可以重来",author: "张靓颖，韩庚",url: "/music/m1.mp3",pic: ""}});aplayer0.init();]]></content>
     </entry>
 
     

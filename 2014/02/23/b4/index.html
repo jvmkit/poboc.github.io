@@ -1,0 +1,933 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="路由表," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="windows 路由表解释1route print -4
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455====================================================================">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows路由表配置：双网卡同时上公司内外网">
+<meta property="og:url" content="http://poboc.github.io/2014/02/23/b4/index.html">
+<meta property="og:site_name" content="Pobo.c">
+<meta property="og:description" content="windows 路由表解释1route print -4
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455====================================================================">
+<meta property="og:image" content="http://images.cnitblog.com/blog/284574/201302/03142532-24fa3b7623b745eea403095bcdc53622.png">
+<meta property="og:image" content="http://images.cnitblog.com/blog/284574/201302/03142534-7f856633c7494039a382aa37526505c9.png">
+<meta property="og:updated_time" content="2017-02-24T12:14:16.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows路由表配置：双网卡同时上公司内外网">
+<meta name="twitter:description" content="windows 路由表解释1route print -4
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455====================================================================">
+<meta name="twitter:image" content="http://images.cnitblog.com/blog/284574/201302/03142532-24fa3b7623b745eea403095bcdc53622.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://poboc.github.io/2014/02/23/b4/"/>
+
+
+
+
+
+  <title> Windows路由表配置：双网卡同时上公司内外网 | Pobo.c </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?92e14afced1236a39484f99997e21c1f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Pobo.c</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://poboc.github.io/2014/02/23/b4/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Pobo.c">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Pobo.c">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Pobo.c" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Windows路由表配置：双网卡同时上公司内外网
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-02-23T22:09:53+08:00">
+                2014-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2014/02/23/b4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/02/23/b4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="windows-路由表解释"><a href="#windows-路由表解释" class="headerlink" title="windows 路由表解释"></a>windows 路由表解释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">route print -4</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">===========================================================================</div><div class="line">Interface List</div><div class="line"> 19...78 dd 08 a4 40 f4 ......Bluetooth Device (Personal Area Network)</div><div class="line"> 11...00 27 10 5b 26 fc ......Intel(R) Centrino(R) Advanced-N 6200 AGN</div><div class="line"> 13...f0 de f1 08 58 f4 ......Intel(R) 82577LM Gigabit Network Connection</div><div class="line"> 15...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1</div><div class="line"> 16...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8</div><div class="line">  1...........................Software Loopback Interface 1</div><div class="line"> 23...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter</div><div class="line"> 12...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface</div><div class="line"> 21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2</div><div class="line"> 17...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #4</div><div class="line"> 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #5</div><div class="line"> 22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #6</div><div class="line">===========================================================================</div><div class="line"></div><div class="line">IPv4 Route Table</div><div class="line">===========================================================================</div><div class="line">Active Routes:</div><div class="line">Network Destination        Netmask          Gateway       Interface  Metric</div><div class="line">          0.0.0.0          0.0.0.0      192.168.0.1     192.168.1.12     26</div><div class="line">       10.108.0.0      255.255.0.0      10.108.58.1     10.108.58.18     21</div><div class="line">      10.108.58.0    255.255.255.0         On-link      10.108.58.18    276</div><div class="line">     10.108.58.18  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">    10.108.58.255  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306</div><div class="line">        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">       172.16.0.0      255.255.0.0      10.108.58.1     10.108.58.18     21</div><div class="line">      192.168.0.0    255.255.252.0         On-link      192.168.1.12    281</div><div class="line">     192.168.1.12  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">    192.168.3.255  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">     192.168.10.0    255.255.255.0         On-link      192.168.10.1    276</div><div class="line">     192.168.10.1  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">   192.168.10.255  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">    192.168.159.0    255.255.255.0         On-link     192.168.159.1    276</div><div class="line">    192.168.159.1  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">  192.168.159.255  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306</div><div class="line">        224.0.0.0        240.0.0.0         On-link      10.108.58.18    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link     192.168.159.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link      192.168.10.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link      192.168.1.12    281</div><div class="line">  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">  255.255.255.255  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">===========================================================================</div><div class="line">Persistent Routes:</div><div class="line">  Network Address          Netmask  Gateway Address  Metric</div><div class="line">      172.21.10.0    255.255.255.0    172.16.56.190       1</div><div class="line">       10.108.0.0      255.255.0.0      10.108.58.1       1</div><div class="line">       172.16.0.0      255.255.0.0      10.108.58.1       1</div><div class="line">===========================================================================</div></pre></td></tr></table></figure>
+<p>Interface List: 网络卡列表</p>
+<p>Active Routes: 活动路由</p>
+<p>Network Destination: 目的网段</p>
+<p>Netmask: 子网掩码，与目的网段共同定义了此条路由适用的网络地址</p>
+<p>Gateway: 网关，又称下一跳路由器，在发送IP数据包时，网关定义了针对特定的网络目的地址，数据包发送到的下一跳服务器</p>
+<p>Interface: 接口，接口定义了针对特定的网络目的地址，本地计算机用于发送数据包的网络接口</p>
+<p>Metric: 跳数，跳数用于指出路由的成本，通常情况下代表到达目标地址所需要经过的跳跃数量，一个跳数代表经过一个路由器。跳数越低，代表路由成本越低，优先级越高</p>
+<p>Persistent Routes: 手动配置静态路由</p>
+<h3 id="windows-路由命令"><a href="#windows-路由命令" class="headerlink" title="windows 路由命令"></a>windows 路由命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">Manipulates network routing tables.</div><div class="line"></div><div class="line">ROUTE [-f] [-p] [-4|-6] command [destination]</div><div class="line">                  [MASK netmask]  [gateway] [METRIC metric]  [IF interface]</div><div class="line"></div><div class="line">  -f           Clears the routing tables of all gateway entries.  If this is</div><div class="line">               used in conjunction with one of the commands, the tables are</div><div class="line">               cleared prior to running the command.</div><div class="line"></div><div class="line">  -p           When used with the ADD command, makes a route persistent across</div><div class="line">               boots of the system. By default, routes are not preserved</div><div class="line">               when the system is restarted. Ignored for all other commands,</div><div class="line">               which always affect the appropriate persistent routes. This</div><div class="line">               option is not supported in Windows 95.</div><div class="line"></div><div class="line">  -4           Force using IPv4.</div><div class="line"></div><div class="line">  -6           Force using IPv6.</div><div class="line"></div><div class="line">  command      One of these:</div><div class="line">                 PRINT     Prints  a route</div><div class="line">                 ADD       Adds    a route</div><div class="line">                 DELETE    Deletes a route</div><div class="line">                 CHANGE    Modifies an existing route</div><div class="line">  destination  Specifies the host.</div><div class="line">  MASK         Specifies that the next parameter is the &apos;netmask&apos; value.</div><div class="line">  netmask      Specifies a subnet mask value for this route entry.</div><div class="line">               If not specified, it defaults to 255.255.255.255.</div><div class="line">  gateway      Specifies gateway.</div><div class="line">  interface    the interface number for the specified route.</div><div class="line">  METRIC       specifies the metric, ie. cost for the destination.</div><div class="line"></div><div class="line">All symbolic names used for destination are looked up in the network database</div><div class="line">file NETWORKS. The symbolic names for gateway are looked up in the host name</div><div class="line">database file HOSTS.</div><div class="line"></div><div class="line">If the command is PRINT or DELETE. Destination or gateway can be a wildcard,</div><div class="line">(wildcard is specified as a star &apos;*&apos;), or the gateway argument may be omitted.</div><div class="line"></div><div class="line">If Dest contains a * or ?, it is treated as a shell pattern, and only</div><div class="line">matching destination routes are printed. The &apos;*&apos; matches any string,</div><div class="line">and &apos;?&apos; matches any one char. Examples: 157.*.1, 157.*, 127.*, *224*.</div><div class="line"></div><div class="line">Pattern match is only allowed in PRINT command.</div><div class="line">Diagnostic Notes:</div><div class="line">    Invalid MASK generates an error, that is when (DEST &amp; MASK) != DEST.</div><div class="line">    Example&gt; route ADD 157.0.0.0 MASK 155.0.0.0 157.55.80.1 IF 1</div><div class="line">             The route addition failed: The specified mask parameter is invalid.</div><div class="line"> (Destination &amp; Mask) != Destination.</div><div class="line"></div><div class="line">Examples:</div><div class="line"></div><div class="line">    &gt; route PRINT</div><div class="line">    &gt; route PRINT -4</div><div class="line">    &gt; route PRINT -6</div><div class="line">    &gt; route PRINT 157*          .... Only prints those matching 157*</div><div class="line"></div><div class="line">    &gt; route ADD 157.0.0.0 MASK 255.0.0.0  157.55.80.1 METRIC 3 IF 2</div><div class="line">             destination^      ^mask      ^gateway     metric^    ^</div><div class="line">                                                         Interface^</div><div class="line">      If IF is not given, it tries to find the best interface for a given</div><div class="line">      gateway.</div><div class="line">    &gt; route ADD 3ffe::/32 3ffe::1</div><div class="line"></div><div class="line">    &gt; route CHANGE 157.0.0.0 MASK 255.0.0.0 157.55.80.5 METRIC 2 IF 2</div><div class="line"></div><div class="line">      CHANGE is used to modify gateway and/or metric only.</div><div class="line"></div><div class="line">    &gt; route DELETE 157.0.0.0</div><div class="line">    &gt; route DELETE 3ffe::/32</div></pre></td></tr></table></figure>
+<p>route print: 打印当前的路由表</p>
+<p>route delete：删除一条路由</p>
+<p>route add: 增加一条路由, 如果最后加上 –p 选项，表示永久增加静态路由，重启后不会失效</p>
+<p>route change: 更改一条路由</p>
+<h3 id="双网卡配置实便"><a href="#双网卡配置实便" class="headerlink" title="双网卡配置实便"></a>双网卡配置实便</h3><h4 id="网络环境："><a href="#网络环境：" class="headerlink" title="网络环境："></a>网络环境：</h4><blockquote>
+<p>有线：可连接公司内网，不能连接Internet</p>
+<p>无线：可连接Internet，不能连接公司内网  默认网关为 192.168.0.1</p>
+<p>我们的目的就是同时连接这两个网络，并自动选择路由实现内外网都可以访问。</p>
+</blockquote>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:删除默认设置</div><div class="line">route delete 0.0.0.0</div><div class="line">:外网路由，全走无线</div><div class="line">route add 0.0.0.0 mask 0.0.0.0 192.168.0.1 –p</div><div class="line">:公司内网全部在10.108.*.*网段，增加此路由</div><div class="line">route add 10.108.0.0 mask 255.255.0.0 10.108.58.1 -p</div></pre></td></tr></table></figure>
+<p>就是这么简单，结果如下（还有另外几个路由配置是做其它用途的）</p>
+<p><a href="http://images.cnitblog.com/blog/284574/201302/03142530-934262d76e2c433c8a7650e944388531.png" target="_blank" rel="external"><img src="http://images.cnitblog.com/blog/284574/201302/03142532-24fa3b7623b745eea403095bcdc53622.png" alt="image"></a></p>
+<p>PING下试试</p>
+<p><a href="http://images.cnitblog.com/blog/284574/201302/03142533-41f83b835f4c484192042399981e7991.png" target="_blank" rel="external"><img src="http://images.cnitblog.com/blog/284574/201302/03142534-7f856633c7494039a382aa37526505c9.png" alt="image"></a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Pobo.c wechat" style="width: 200px; max-width: 100%;"/>
+    <div>MeMeDa~❤，My Dear！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/路由表/" rel="tag"># 路由表</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/02/23/b2/" rel="next" title="Java--分页查询">
+                <i class="fa fa-chevron-left"></i> Java--分页查询
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/02/24/b3/" rel="prev" title="使用eclipse自动生成WSDL客户端代码">
+                使用eclipse自动生成WSDL客户端代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2014/02/23/b4/"
+     data-title="Windows路由表配置：双网卡同时上公司内外网"
+     data-content=""
+     data-url="http://poboc.github.io/2014/02/23/b4/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/02/23/b4/"
+           data-title="Windows路由表配置：双网卡同时上公司内外网" data-url="http://poboc.github.io/2014/02/23/b4/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Pobo.c" />
+          <p class="site-author-name" itemprop="name">Pobo.c</p>
+          <p class="site-description motion-element" itemprop="description">I miss you so much already and I haven't even left yet!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zacharygit" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-路由表解释"><span class="nav-number">1.</span> <span class="nav-text">windows 路由表解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-路由命令"><span class="nav-number">2.</span> <span class="nav-text">windows 路由命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双网卡配置实便"><span class="nav-number">3.</span> <span class="nav-text">双网卡配置实便</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络环境："><span class="nav-number">3.1.</span> <span class="nav-text">网络环境：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pobo.c</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zacharygit"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

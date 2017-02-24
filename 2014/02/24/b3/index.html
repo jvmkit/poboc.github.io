@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20150327093908193?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20150327093933121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20150327094025238?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2017-02-24T12:03:05.080Z">
+<meta property="og:updated_time" content="2017-02-24T12:18:26.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用eclipse自动生成WSDL客户端代码">
 <meta name="twitter:description" content="获取WSDL文件从网上可以搜到一些提供各种服务的免费接口，比如获取天气预报的接口：
@@ -413,6 +413,7 @@
         <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="获取WSDL文件"><a href="#获取WSDL文件" class="headerlink" title="获取WSDL文件"></a>获取WSDL文件</h2><p>从网上可以搜到一些提供各种服务的免费接口，比如获取天气预报的接口：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[java] view plain copy</div><div class="line">http:<span class="comment">//www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl</span></div></pre></td></tr></table></figure>
 <p>在浏览器中打开上面的网址，然后ctrl+s保存为WeatherWebService.wsdl文件，将该文件加入到你的Java工程中。</p>
+<a id="more"></a>
 <h3 id="引入必须的Jar包"><a href="#引入必须的Jar包" class="headerlink" title="引入必须的Jar包"></a>引入必须的Jar包</h3><p>webservice服务是需要引入axis的jar包的，如下图：</p>
 <p><img src="http://img.blog.csdn.net/20150327093709723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
 <p>如果没有引入saaj-*.jar，可能会报错。</p>

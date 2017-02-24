@@ -394,34 +394,15 @@
 
       
         
-          
-            <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h2><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br>内存要求：≥128M<br>日期　　：2017 年 02 月 13 日</p>
+          <h2 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h2><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br>内存要求：≥128M<br>日期　　：2017 年 02 月 13 日</p>
 <h3 id="关于本脚本"><a href="#关于本脚本" class="headerlink" title="关于本脚本"></a>关于本脚本</h3><p>1、一键安装 Shadowsocks-Python， ShadowsocksR， Shadowsocks-Go， Shadowsocks-libev 版（四选一）服务端；<br>2、各版本的启动脚本及配置文件名不再重合；<br>3、每次运行可安装一种版本；<br>4、支持以多次运行来安装多个版本，且各个版本可以共存（注意端口号需设成不同）；<br>5、若已安装多个版本，则卸载时也需多次运行（每次卸载一种）；<br>6、Shadowsocks-Python 和 ShadowsocksR 安装后不可同时启动（因为本质上都属 Python 版）。</p>
-<p><strong>友情提示：</strong>如果你有问题，请先阅读这篇《<a href="https://teddysun.com/399.html" target="_blank" rel="external">Shadowsocks Troubleshooting</a>》之后再询问。</p>
-<h3 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h3><p>服务器端口：自己设定（如不设定，默认为 8989）<br>密码：自己设定（如不设定，默认为 teddysun.com）<br><strong>备注：</strong>脚本默认创建单用户配置文件，如需配置多用户，请手动修改相应的配置文件后重启即可。</p>
-<h3 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h3><p>常规版 Windows 客户端<br><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></p>
-<p>ShadowsocksR 版 Windows 客户端<br><a href="https://github.com/shadowsocksr/shadowsocksr-csharp/releases" target="_blank" rel="external">https://github.com/shadowsocksr/shadowsocksr-csharp/releases</a></p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>使用root用户登录，运行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</div><div class="line">chmod +x shadowsocks-all.sh</div><div class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</div></pre></td></tr></table></figure>
-<h3 id="安装完成后，脚本提示如下"><a href="#安装完成后，脚本提示如下" class="headerlink" title="安装完成后，脚本提示如下"></a>安装完成后，脚本提示如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Congratulations, your_shadowsocks_version install completed!</div><div class="line">Your Server IP        :your_server_ip</div><div class="line">Your Server Port      :your_server_port</div><div class="line">Your Password         :your_password</div><div class="line">Your Encryption Method:aes-256-cfb</div><div class="line"></div><div class="line">Welcome to visit:https://teddysun.com/486.html</div><div class="line">Enjoy it!</div></pre></td></tr></table></figure>
-<h3 id="卸载方法"><a href="#卸载方法" class="headerlink" title="卸载方法"></a>卸载方法</h3><p>若已安装多个版本，则卸载时也需多次运行（每次卸载一种）</p>
-<p>使用root用户登录，运行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./shadowsocks-all.sh uninstall</div></pre></td></tr></table></figure>
-<h3 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h3><p>启动脚本后面的参数含义，从左至右依次为：启动，停止，重启，查看状态。</p>
-<p>Shadowsocks-Python 版：<br>/etc/init.d/shadowsocks-python start | stop | restart | status</p>
-<p>ShadowsocksR 版：<br>/etc/init.d/shadowsocks-r start | stop | restart | status</p>
-<p>Shadowsocks-Go 版：<br>/etc/init.d/shadowsocks-go start | stop | restart | status</p>
-<p>Shadowsocks-libev 版：<br>/etc/init.d/shadowsocks-libev start | stop | restart | status</p>
-<h3 id="各版本默认配置文件"><a href="#各版本默认配置文件" class="headerlink" title="各版本默认配置文件"></a>各版本默认配置文件</h3><p>Shadowsocks-Python 版：<br>/etc/shadowsocks-python/config.json</p>
-<p>ShadowsocksR 版：<br>/etc/shadowsocks-r/config.json</p>
-<p>Shadowsocks-Go 版：<br>/etc/shadowsocks-go/config.json</p>
-<p>Shadowsocks-libev 版：<br>/etc/shadowsocks-libev/config.json</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>2017 年 02 月 13 日：<br>1、升级： Shadowsocks-libev 版到版本 3.0.2；<br>2、升级： Shadowsocks-go 版到版本 1.2.1（基于 <a href="https://github.com/shadowsocks/shadowsocks-go" target="_blank" rel="external">Github 最新代码</a>，用 go 1.8 编译完成的 x86 和 x86_64 二进制文件）；<br>3、修复：在 Debian 7 下默认没有 libudns-dev 依赖包的问题。<br>2017 年 02 月 12 日：<br>1、升级： Shadowsocks-libev 版到版本 3.0.1。<br>2017 年 01 月 27 日：<br>1、升级： Shadowsocks-go 版到版本 1.2.1 （仅适用于 x86_64 系统）</p>
-<h3 id="更多单版本-Shadowsocks-服务端一键安装脚本"><a href="#更多单版本-Shadowsocks-服务端一键安装脚本" class="headerlink" title="更多单版本 Shadowsocks 服务端一键安装脚本"></a>更多单版本 Shadowsocks 服务端一键安装脚本</h3><p><a href="https://shadowsocks.be/9.html" target="_blank" rel="external">ShadowsocksR 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br><a href="https://teddysun.com/357.html" target="_blank" rel="external">CentOS 下 Shadowsocks-libev 一键安装脚本</a><br><a href="https://teddysun.com/358.html" target="_blank" rel="external">Debian 下 Shadowsocks-libev 一键安装脚本</a><br><a href="https://teddysun.com/392.html" target="_blank" rel="external">Shadowsocks-go 一键安装脚本（CentOS，Debian，Ubuntu）</a></p>
-<p><strong>注意：</strong>以上单版本不可与该四合一版本混用。</p>
-<p>转载请注明：<a href="https://teddysun.com/" target="_blank" rel="external">秋水逸冰</a> » <a href="https://teddysun.com/486.html" target="_blank" rel="external">Shadowsocks 一键安装脚本（四合一）</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/02/24/b5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -560,56 +541,16 @@
 
       
         
-          
-            <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="获取WSDL文件"><a href="#获取WSDL文件" class="headerlink" title="获取WSDL文件"></a>获取WSDL文件</h2><p>从网上可以搜到一些提供各种服务的免费接口，比如获取天气预报的接口：</p>
+          <h2 id="获取WSDL文件"><a href="#获取WSDL文件" class="headerlink" title="获取WSDL文件"></a>获取WSDL文件</h2><p>从网上可以搜到一些提供各种服务的免费接口，比如获取天气预报的接口：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[java] view plain copy</div><div class="line">http:<span class="comment">//www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl</span></div></pre></td></tr></table></figure>
 <p>在浏览器中打开上面的网址，然后ctrl+s保存为WeatherWebService.wsdl文件，将该文件加入到你的Java工程中。</p>
-<h3 id="引入必须的Jar包"><a href="#引入必须的Jar包" class="headerlink" title="引入必须的Jar包"></a>引入必须的Jar包</h3><p>webservice服务是需要引入axis的jar包的，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093709723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>如果没有引入saaj-*.jar，可能会报错。</p>
-<h3 id="生成客户端Java代码"><a href="#生成客户端Java代码" class="headerlink" title="生成客户端Java代码"></a>生成客户端Java代码</h3><p>右键点击WeatherWebService.wsdl文件，找到Web Service项，点击Generate Client子菜单。如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093716278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>在弹出的窗口中点击Next，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093830063?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>选择生成的代码要防止的包位置，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093735513?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>点击完成，稍等片刻，就能看到生成的Java代码了。如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093816432?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><p><strong>[java]</strong> <a href="http://blog.csdn.net/tang19880721/article/details/44653209#" target="_blank" rel="external">view plain</a> <a href="http://blog.csdn.net/tang19880721/article/details/44653209#" target="_blank" rel="external">copy</a></p>
-<ol>
-<li>package cn.com.WebXml;  </li>
-<li>​</li>
-<li>import java.rmi.RemoteException;  </li>
-<li>​</li>
-<li>import javax.xml.rpc.ServiceException;  </li>
-<li>​</li>
-<li>public class WeatherDemo {  </li>
-<li>public static void main(String[] args) throws ServiceException, RemoteException {  </li>
-<li>​</li>
-<li>WeatherWebServiceLocator locator = new WeatherWebServiceLocator();  </li>
-<li>WeatherWebServiceSoapStub stub = (WeatherWebServiceSoapStub) locator.getPort(WeatherWebServiceSoapStub.class);  </li>
-<li>​</li>
-<li>String[] weatherInfo = stub.getWeatherbyCityName(“南京”);  </li>
-<li>for (String info : weatherInfo) {  </li>
-<li>System.out.println(info);  </li>
-<li>}  </li>
-<li>}  </li>
-<li>}  </li>
-</ol>
-<p>测试结果如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093925630?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p><strong>IWAB0503E Unable to update Java build path</strong></p>
-<p>关于这个问题，stackoverflow.com上有一个提问：<a href="http://stackoverflow.com/questions/5731503/web-service-error" target="_blank" rel="external">http://stackoverflow.com/questions/5731503/web-service-error</a></p>
-<p>解决方案来自于：<a href="http://zoutuo1986.iteye.com/blog/1708633" target="_blank" rel="external">http://zoutuo1986.iteye.com/blog/1708633</a></p>
-<p>在使用sts生成客户端Java代码的时候，最后一步报了这个错误，这个是因为eclipse中包含多于一个的saaj插件引起的。点击sts的help菜单，找到子菜单项About Spring Tool Suite，在弹出的窗口中点击左下角的Instation Details按钮，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093908193?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>在弹出的窗口中切换到Plug-ins标签页，在输入框中输入saaj，过滤结果如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327093933121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>可以看到，sts安装了两个SAAJ插件。此时到sts安装目录下的plugins目录中搜索”javax.xml.soap”，会出现两个结果，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20150327094025238?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFuZzE5ODgwNzIx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>备份后删除其中一个，重启sts即可。</p>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/02/24/b3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -748,34 +689,15 @@
 
       
         
-          
-            <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="windows-路由表解释"><a href="#windows-路由表解释" class="headerlink" title="windows 路由表解释"></a>windows 路由表解释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">route print -4</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">===========================================================================</div><div class="line">Interface List</div><div class="line"> 19...78 dd 08 a4 40 f4 ......Bluetooth Device (Personal Area Network)</div><div class="line"> 11...00 27 10 5b 26 fc ......Intel(R) Centrino(R) Advanced-N 6200 AGN</div><div class="line"> 13...f0 de f1 08 58 f4 ......Intel(R) 82577LM Gigabit Network Connection</div><div class="line"> 15...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1</div><div class="line"> 16...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8</div><div class="line">  1...........................Software Loopback Interface 1</div><div class="line"> 23...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter</div><div class="line"> 12...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface</div><div class="line"> 21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2</div><div class="line"> 17...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #4</div><div class="line"> 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #5</div><div class="line"> 22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #6</div><div class="line">===========================================================================</div><div class="line"></div><div class="line">IPv4 Route Table</div><div class="line">===========================================================================</div><div class="line">Active Routes:</div><div class="line">Network Destination        Netmask          Gateway       Interface  Metric</div><div class="line">          0.0.0.0          0.0.0.0      192.168.0.1     192.168.1.12     26</div><div class="line">       10.108.0.0      255.255.0.0      10.108.58.1     10.108.58.18     21</div><div class="line">      10.108.58.0    255.255.255.0         On-link      10.108.58.18    276</div><div class="line">     10.108.58.18  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">    10.108.58.255  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306</div><div class="line">        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">       172.16.0.0      255.255.0.0      10.108.58.1     10.108.58.18     21</div><div class="line">      192.168.0.0    255.255.252.0         On-link      192.168.1.12    281</div><div class="line">     192.168.1.12  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">    192.168.3.255  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">     192.168.10.0    255.255.255.0         On-link      192.168.10.1    276</div><div class="line">     192.168.10.1  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">   192.168.10.255  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">    192.168.159.0    255.255.255.0         On-link     192.168.159.1    276</div><div class="line">    192.168.159.1  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">  192.168.159.255  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306</div><div class="line">        224.0.0.0        240.0.0.0         On-link      10.108.58.18    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link     192.168.159.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link      192.168.10.1    276</div><div class="line">        224.0.0.0        240.0.0.0         On-link      192.168.1.12    281</div><div class="line">  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306</div><div class="line">  255.255.255.255  255.255.255.255         On-link      10.108.58.18    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link     192.168.159.1    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link      192.168.10.1    276</div><div class="line">  255.255.255.255  255.255.255.255         On-link      192.168.1.12    281</div><div class="line">===========================================================================</div><div class="line">Persistent Routes:</div><div class="line">  Network Address          Netmask  Gateway Address  Metric</div><div class="line">      172.21.10.0    255.255.255.0    172.16.56.190       1</div><div class="line">       10.108.0.0      255.255.0.0      10.108.58.1       1</div><div class="line">       172.16.0.0      255.255.0.0      10.108.58.1       1</div><div class="line">===========================================================================</div></pre></td></tr></table></figure>
-<p>Interface List: 网络卡列表</p>
-<p>Active Routes: 活动路由</p>
-<p>Network Destination: 目的网段</p>
-<p>Netmask: 子网掩码，与目的网段共同定义了此条路由适用的网络地址</p>
-<p>Gateway: 网关，又称下一跳路由器，在发送IP数据包时，网关定义了针对特定的网络目的地址，数据包发送到的下一跳服务器</p>
-<p>Interface: 接口，接口定义了针对特定的网络目的地址，本地计算机用于发送数据包的网络接口</p>
-<p>Metric: 跳数，跳数用于指出路由的成本，通常情况下代表到达目标地址所需要经过的跳跃数量，一个跳数代表经过一个路由器。跳数越低，代表路由成本越低，优先级越高</p>
-<p>Persistent Routes: 手动配置静态路由</p>
-<h3 id="windows-路由命令"><a href="#windows-路由命令" class="headerlink" title="windows 路由命令"></a>windows 路由命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">Manipulates network routing tables.</div><div class="line"></div><div class="line">ROUTE [-f] [-p] [-4|-6] command [destination]</div><div class="line">                  [MASK netmask]  [gateway] [METRIC metric]  [IF interface]</div><div class="line"></div><div class="line">  -f           Clears the routing tables of all gateway entries.  If this is</div><div class="line">               used in conjunction with one of the commands, the tables are</div><div class="line">               cleared prior to running the command.</div><div class="line"></div><div class="line">  -p           When used with the ADD command, makes a route persistent across</div><div class="line">               boots of the system. By default, routes are not preserved</div><div class="line">               when the system is restarted. Ignored for all other commands,</div><div class="line">               which always affect the appropriate persistent routes. This</div><div class="line">               option is not supported in Windows 95.</div><div class="line"></div><div class="line">  -4           Force using IPv4.</div><div class="line"></div><div class="line">  -6           Force using IPv6.</div><div class="line"></div><div class="line">  command      One of these:</div><div class="line">                 PRINT     Prints  a route</div><div class="line">                 ADD       Adds    a route</div><div class="line">                 DELETE    Deletes a route</div><div class="line">                 CHANGE    Modifies an existing route</div><div class="line">  destination  Specifies the host.</div><div class="line">  MASK         Specifies that the next parameter is the &apos;netmask&apos; value.</div><div class="line">  netmask      Specifies a subnet mask value for this route entry.</div><div class="line">               If not specified, it defaults to 255.255.255.255.</div><div class="line">  gateway      Specifies gateway.</div><div class="line">  interface    the interface number for the specified route.</div><div class="line">  METRIC       specifies the metric, ie. cost for the destination.</div><div class="line"></div><div class="line">All symbolic names used for destination are looked up in the network database</div><div class="line">file NETWORKS. The symbolic names for gateway are looked up in the host name</div><div class="line">database file HOSTS.</div><div class="line"></div><div class="line">If the command is PRINT or DELETE. Destination or gateway can be a wildcard,</div><div class="line">(wildcard is specified as a star &apos;*&apos;), or the gateway argument may be omitted.</div><div class="line"></div><div class="line">If Dest contains a * or ?, it is treated as a shell pattern, and only</div><div class="line">matching destination routes are printed. The &apos;*&apos; matches any string,</div><div class="line">and &apos;?&apos; matches any one char. Examples: 157.*.1, 157.*, 127.*, *224*.</div><div class="line"></div><div class="line">Pattern match is only allowed in PRINT command.</div><div class="line">Diagnostic Notes:</div><div class="line">    Invalid MASK generates an error, that is when (DEST &amp; MASK) != DEST.</div><div class="line">    Example&gt; route ADD 157.0.0.0 MASK 155.0.0.0 157.55.80.1 IF 1</div><div class="line">             The route addition failed: The specified mask parameter is invalid.</div><div class="line"> (Destination &amp; Mask) != Destination.</div><div class="line"></div><div class="line">Examples:</div><div class="line"></div><div class="line">    &gt; route PRINT</div><div class="line">    &gt; route PRINT -4</div><div class="line">    &gt; route PRINT -6</div><div class="line">    &gt; route PRINT 157*          .... Only prints those matching 157*</div><div class="line"></div><div class="line">    &gt; route ADD 157.0.0.0 MASK 255.0.0.0  157.55.80.1 METRIC 3 IF 2</div><div class="line">             destination^      ^mask      ^gateway     metric^    ^</div><div class="line">                                                         Interface^</div><div class="line">      If IF is not given, it tries to find the best interface for a given</div><div class="line">      gateway.</div><div class="line">    &gt; route ADD 3ffe::/32 3ffe::1</div><div class="line"></div><div class="line">    &gt; route CHANGE 157.0.0.0 MASK 255.0.0.0 157.55.80.5 METRIC 2 IF 2</div><div class="line"></div><div class="line">      CHANGE is used to modify gateway and/or metric only.</div><div class="line"></div><div class="line">    &gt; route DELETE 157.0.0.0</div><div class="line">    &gt; route DELETE 3ffe::/32</div></pre></td></tr></table></figure>
-<p>route print: 打印当前的路由表</p>
-<p>route delete：删除一条路由</p>
-<p>route add: 增加一条路由, 如果最后加上 –p 选项，表示永久增加静态路由，重启后不会失效</p>
-<p>route change: 更改一条路由</p>
-<h3 id="双网卡配置实便"><a href="#双网卡配置实便" class="headerlink" title="双网卡配置实便"></a>双网卡配置实便</h3><h4 id="网络环境："><a href="#网络环境：" class="headerlink" title="网络环境："></a>网络环境：</h4><blockquote>
-<p>有线：可连接公司内网，不能连接Internet</p>
-<p>无线：可连接Internet，不能连接公司内网  默认网关为 192.168.0.1</p>
-<p>我们的目的就是同时连接这两个网络，并自动选择路由实现内外网都可以访问。</p>
-</blockquote>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:删除默认设置</div><div class="line">route delete 0.0.0.0</div><div class="line">:外网路由，全走无线</div><div class="line">route add 0.0.0.0 mask 0.0.0.0 192.168.0.1 –p</div><div class="line">:公司内网全部在10.108.*.*网段，增加此路由</div><div class="line">route add 10.108.0.0 mask 255.255.0.0 10.108.58.1 -p</div></pre></td></tr></table></figure>
-<p>就是这么简单，结果如下（还有另外几个路由配置是做其它用途的）</p>
-<p><a href="http://images.cnitblog.com/blog/284574/201302/03142530-934262d76e2c433c8a7650e944388531.png" target="_blank" rel="external"><img src="http://images.cnitblog.com/blog/284574/201302/03142532-24fa3b7623b745eea403095bcdc53622.png" alt="image"></a></p>
-<p>PING下试试</p>
-<p><a href="http://images.cnitblog.com/blog/284574/201302/03142533-41f83b835f4c484192042399981e7991.png" target="_blank" rel="external"><img src="http://images.cnitblog.com/blog/284574/201302/03142534-7f856633c7494039a382aa37526505c9.png" alt="image"></a></p>
-
-          
+          <h3 id="windows-路由表解释"><a href="#windows-路由表解释" class="headerlink" title="windows 路由表解释"></a>windows 路由表解释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">route print -4</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">===========================================================================</div><div class="line">Interface List</div><div class="line"> 19...78 dd 08 a4 40 f4 ......Bluetooth Device (Personal Area Network)</div><div class="line"> 11...00 27 10 5b 26 fc ......Intel(R) Centrino(R) Advanced-N 6200 AGN</div><div class="line"> 13...f0 de f1 08 58 f4 ......Intel(R) 82577LM Gigabit Network Connection</div><div class="line"> 15...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1</div><div class="line"> 16...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8</div><div class="line">  1...........................Software Loopback Interface 1</div><div class="line"> 23...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter</div><div class="line"> 12...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface</div><div class="line"> 21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2</div><div class="line"> 17...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #4</div><div class="line"> 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #5</div><div class="line"> 22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #6</div><div class="line">===========================================================================</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/02/23/b4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -915,6 +837,7 @@
       
         
           <p>使用java和easyui进行简单的分页查询方法记录</p>
+<h2 id="编写一个JavaBean"><a href="#编写一个JavaBean" class="headerlink" title="编写一个JavaBean"></a>编写一个JavaBean</h2><p>PageBean.java:</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/02/23/b2/#more" rel="contents">
@@ -1060,272 +983,15 @@
 
       
         
-          
-            <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h1 id="Markdown-语法说明"><a href="#Markdown-语法说明" class="headerlink" title="Markdown 语法说明"></a>Markdown 语法说明</h1><p>[TOC]</p>
+          <h1 id="Markdown-语法说明"><a href="#Markdown-语法说明" class="headerlink" title="Markdown 语法说明"></a>Markdown 语法说明</h1><p>[TOC]</p>
 <hr>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h3><p>Markdown 的目标是实现「易读易写」。</p>
-<p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>、<a href="http://textism.com/tools/textile/" target="_blank" rel="external">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" target="_blank" rel="external">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" target="_blank" rel="external">EtText</a>，而最大灵感来源其实是纯文本电子邮件的格式。</p>
-<p>总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像<em>强调</em>。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
-<h3 id="兼容-HTML"><a href="#兼容-HTML" class="headerlink" title="兼容 HTML"></a>兼容 HTML</h3><p>Markdown 语法的目标是：成为一种适用于网络的<em>书写</em>语言。</p>
-<p>Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想<em>不是</em>要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种<em>发布</em>的格式，Markdown 是一种<em>书写</em>的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。</p>
-<p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。</p>
-<p>要制约的只有一些 HTML 区块元素――比如 <code>、</code>、<code>、</code> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。Markdown 的生成器有足够智能，不会在 HTML 区块标签外加上不必要的 `` 标签。</p>
-<p>例子如下，在 Markdown 文件里加上一段 HTML 表格：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">这是一个普通段落。</div><div class="line"></div><div class="line">&lt;table&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;Foo&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div><div class="line"></div><div class="line">这是另一个普通段落。</div></pre></td></tr></table></figure>
-<p>请注意，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。比如，你在 HTML 区块内使用 Markdown 样式的<code>*强调*</code>会没有效果。</p>
-<p>HTML 的区段（行内）标签如 <code>、</code>、<code>~~</code>~~ 可以在 Markdown 的段落、列表或是标题里随意使用。依照个人习惯，甚至可以不用 Markdown 格式，而直接采用 HTML 标签来格式化。举例说明：如果比较喜欢 HTML 的 <code>[</code>](undefined) 或 `` 标签，可以直接使用这些标签，而不用 Markdown 提供的链接或是图像标签语法。</p>
-<p>和处在 HTML 区块标签间不同，Markdown 语法在 HTML 区段标签间是有效的。</p>
-<h3 id="特殊字符自动转换"><a href="#特殊字符自动转换" class="headerlink" title="特殊字符自动转换"></a>特殊字符自动转换</h3><p>在 HTML 文件中，有两个字符需要特殊处理： <code>&lt;</code> 和 <code>&amp;</code> 。 <code>&lt;</code> 符号用于起始标签，<code>&amp;</code> 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 <code>&lt;</code> 和 <code>&amp;</code>。</p>
-<p><code>&amp;</code> 字符尤其让网络文档编写者受折磨，如果你要打「<code>AT&amp;T</code>」 ，你必须要写成「<code>AT&amp;T</code>」。而网址中的 <code>&amp;</code> 字符也要转换。比如你要链接到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://images.google.com/images?num=30&amp;q=larry+bird</div></pre></td></tr></table></figure>
-<p>你必须要把网址转换写为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://images.google.com/images?num=30&amp;amp;q=larry+bird</div></pre></td></tr></table></figure>
-<p>才能放到链接标签的 <code>href</code> 属性里。不用说也知道这很容易忽略，这也可能是 HTML 标准检验所检查到的错误中，数量最多的。</p>
-<p>Markdown 让你可以自然地书写字符，需要转换的由它来处理好了。如果你使用的 <code>&amp;</code> 字符是 HTML 字符实体的一部分，它会保留原状，否则它会被转换成 <code>&amp;amp</code>;。</p>
-<p>所以你如果要在文档中插入一个版权符号 <code>©</code>，你可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;copy;</div></pre></td></tr></table></figure>
-<p>Markdown 会保留它不动。而若你写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT&amp;T</div></pre></td></tr></table></figure>
-<p>Markdown 就会将它转为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT&amp;amp;T</div></pre></td></tr></table></figure>
-<p>类似的状况也会发生在 <code>&lt;</code> 符号上，因为 Markdown 允许 <a href="http://wowubuntu.com/markdown/#html" target="_blank" rel="external">兼容 HTML</a> ，如果你是把 <code>&lt;</code> 符号作为 HTML 标签的定界符使用，那 Markdown 也不会对它做任何转换，但是如果你写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4 &lt; 5</div></pre></td></tr></table></figure>
-<p>Markdown 将会把它转换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4 &amp;lt; 5</div></pre></td></tr></table></figure>
-<p>不过需要注意的是，code 范围内，不论是行内还是区块， <code>&lt;</code> 和 <code>&amp;</code> 两个符号都<em>一定</em>会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code （和 HTML 相对而言， HTML 语法中，你要把所有的 <code>&lt;</code> 和 <code>&amp;</code> 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。）</p>
-<hr>
-<h2 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h2><h3 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h3><p>一个 Markdown 段落是由一个或多个连续的文本行组成，它的前后要有一个以上的空行（空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行）。普通段落不该用空格或制表符来缩进。</p>
-<p>「由一个或多个连续的文本行组成」这句话其实暗示了 Markdown 允许段落内的强迫换行（插入换行符），这个特性和其他大部分的 text-to-HTML 格式不一样（包括 Movable Type 的「Convert Line Breaks」选项），其它的格式会把每个换行符都转成 `` 标签。</p>
-<p>如果你<em>确实</em>想要依赖 Markdown 来插入 `` 标签的话，在插入处先按入两个以上的空格然后回车。</p>
-<p>的确，需要多费点事（多加空格）来产生 <code>，但是简单地「每个换行都转换为</code>」的方法在 Markdown 中并不适合， Markdown 中 email 式的 <a href="http://wowubuntu.com/markdown/#blockquote" target="_blank" rel="external">区块引用</a> 和多段落的 <a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="external">列表</a> 在使用换行来排版的时候，不但更好用，还更方便阅读。</p>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>Markdown 支持两种标题的语法，类 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a> 和类 <a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a> 形式。</p>
-<p>类 Setext 形式是用底线的形式，利用 <code>=</code> （最高阶标题）和 <code>-</code> （第二阶标题），例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">This is an H1</div><div class="line">=============</div><div class="line"></div><div class="line">This is an H2</div><div class="line">-------------</div></pre></td></tr></table></figure>
-<p>任何数量的 <code>=</code> 和 <code>-</code> 都可以有效果。</p>
-<p>类 Atx 形式则是在行首插入 1 到 6 个 <code>#</code> ，对应到标题 1 到 6 阶，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 这是 H1</div><div class="line"></div><div class="line">## 这是 H2</div><div class="line"></div><div class="line">###### 这是 H6</div></pre></td></tr></table></figure>
-<p>你可以选择性地「闭合」类 atx 样式的标题，这纯粹只是美观用的，若是觉得这样看起来比较舒适，你就可以在行尾加上 <code>#</code>，而行尾的 <code>#</code> 数量也不用和开头一样（行首的井字符数量决定标题的阶数）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 这是 H1 #</div><div class="line"></div><div class="line">## 这是 H2 ##</div><div class="line"></div><div class="line">### 这是 H3 ######</div></pre></td></tr></table></figure>
-<h3 id="区块引用-Blockquotes"><a href="#区块引用-Blockquotes" class="headerlink" title="区块引用 Blockquotes"></a>区块引用 Blockquotes</h3><p>Markdown 标记区块引用是使用类似 email 中用 <code>&gt;</code> 的引用方式。如果你还熟悉在 email 信件中的引言部分，你就知道怎么在 Markdown 文件中建立一个区块引用，那会看起来像是你自己先断好行，然后在每行的最前面加上 <code>&gt;</code> ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,</div><div class="line">&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.</div><div class="line">&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line">&gt; </div><div class="line">&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse</div><div class="line">&gt; id sem consectetuer libero luctus adipiscing.</div></pre></td></tr></table></figure>
-<p>Markdown 也允许你偷懒只在整个段落的第一行最前面加上 <code>&gt;</code> ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,</div><div class="line">consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.</div><div class="line">Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line"></div><div class="line">&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse</div><div class="line">id sem consectetuer libero luctus adipiscing.</div></pre></td></tr></table></figure>
-<p>区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 <code>&gt;</code> ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; This is the first level of quoting.</div><div class="line">&gt;</div><div class="line">&gt; &gt; This is nested blockquote.</div><div class="line">&gt;</div><div class="line">&gt; Back to the first level.</div></pre></td></tr></table></figure>
-<p>引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; ## 这是一个标题。</div><div class="line">&gt; </div><div class="line">&gt; 1.   这是第一行列表项。</div><div class="line">&gt; 2.   这是第二行列表项。</div><div class="line">&gt; </div><div class="line">&gt; 给出一些例子代码：</div><div class="line">&gt; </div><div class="line">&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);</div></pre></td></tr></table></figure>
-<p>任何像样的文本编辑器都能轻松地建立 email 型的引用。例如在 BBEdit 中，你可以选取文字后然后从选单中选择<em>增加引用阶层</em>。</p>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>Markdown 支持有序列表和无序列表。</p>
-<p>无序列表使用星号、加号或是减号作为列表标记：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*   Red</div><div class="line">*   Green</div><div class="line">*   Blue</div></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+   Red</div><div class="line">+   Green</div><div class="line">+   Blue</div></pre></td></tr></table></figure>
-<p>也等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-   Red</div><div class="line">-   Green</div><div class="line">-   Blue</div></pre></td></tr></table></figure>
-<p>有序列表则使用数字接着一个英文句点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.  Bird</div><div class="line">2.  McHale</div><div class="line">3.  Parish</div></pre></td></tr></table></figure>
-<p>很重要的一点是，你在列表标记上使用的数字并不会影响输出的 HTML 结果，上面的列表所产生的 HTML 标记为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;</div><div class="line">&lt;li&gt;Bird&lt;/li&gt;</div><div class="line">&lt;li&gt;McHale&lt;/li&gt;</div><div class="line">&lt;li&gt;Parish&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure>
-<p>如果你的列表标记写成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.  Bird</div><div class="line">1.  McHale</div><div class="line">1.  Parish</div></pre></td></tr></table></figure>
-<p>或甚至是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">3. Bird</div><div class="line">1. McHale</div><div class="line">8. Parish</div></pre></td></tr></table></figure>
-<p>你都会得到完全相同的 HTML 输出。重点在于，你可以让 Markdown 文件的列表数字和输出的结果相同，或是你懒一点，你可以完全不用在意数字的正确性。</p>
-<p>如果你使用懒惰的写法，建议第一个项目最好还是从 1. 开始，因为 Markdown 未来可能会支持有序列表的 start 属性。</p>
-<p>列表项目标记通常是放在最左边，但是其实也可以缩进，最多 3 个空格，项目标记后面则一定要接着至少一个空格或制表符。</p>
-<p>要让列表看起来更漂亮，你可以把内容用固定的缩进整理好：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div><div class="line">    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,</div><div class="line">    viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line">*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.</div><div class="line">    Suspendisse id sem consectetuer libero luctus adipiscing.</div></pre></td></tr></table></figure>
-<p>但是如果你懒，那也行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div><div class="line">Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,</div><div class="line">viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line">*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.</div><div class="line">Suspendisse id sem consectetuer libero luctus adipiscing.</div></pre></td></tr></table></figure>
-<p>如果列表项目间用空行分开，在输出 HTML 时 Markdown 就会将项目内容用 `` 标签包起来，举例来说：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*   Bird</div><div class="line">*   Magic</div></pre></td></tr></table></figure>
-<p>会被转换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&lt;li&gt;Bird&lt;/li&gt;</div><div class="line">&lt;li&gt;Magic&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<p>但是这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*   Bird</div><div class="line"></div><div class="line">*   Magic</div></pre></td></tr></table></figure>
-<p>会被转换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&lt;li&gt;&lt;p&gt;Bird&lt;/p&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;p&gt;Magic&lt;/p&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1.  This is a list item with two paragraphs. Lorem ipsum dolor</div><div class="line">    sit amet, consectetuer adipiscing elit. Aliquam hendrerit</div><div class="line">    mi posuere lectus.</div><div class="line"></div><div class="line">    Vestibulum enim wisi, viverra nec, fringilla in, laoreet</div><div class="line">    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum</div><div class="line">    sit amet velit.</div><div class="line"></div><div class="line">2.  Suspendisse id sem consectetuer libero luctus adipiscing.</div></pre></td></tr></table></figure>
-<p>如果你每行都有缩进，看起来会看好很多，当然，再次地，如果你很懒惰，Markdown 也允许：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*   This is a list item with two paragraphs.</div><div class="line"></div><div class="line">    This is the second paragraph in the list item. You&apos;re</div><div class="line">only required to indent the first line. Lorem ipsum dolor</div><div class="line">sit amet, consectetuer adipiscing elit.</div><div class="line"></div><div class="line">*   Another item in the same list.</div></pre></td></tr></table></figure>
-<p>如果要在列表项目内放进引用，那 <code>&gt;</code> 就需要缩进：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*   A list item with a blockquote:</div><div class="line"></div><div class="line">    &gt; This is a blockquote</div><div class="line">    &gt; inside a list item.</div></pre></td></tr></table></figure>
-<p>如果要放代码区块的话，该区块就需要缩进<em>两次</em>，也就是 8 个空格或是 2 个制表符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*   一列表项包含一个列表区块：</div><div class="line"></div><div class="line">        &lt;代码写在这&gt;</div></pre></td></tr></table></figure>
-<p>当然，项目列表很可能会不小心产生，像是下面这样的写法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1986. What a great season.</div></pre></td></tr></table></figure>
-<p>换句话说，也就是在行首出现<em>数字-句点-空白</em>，要避免这样的状况，你可以在句点前面加上反斜杠。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1986\. What a great season.</div></pre></td></tr></table></figure>
-<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用 <code>和</code> 标签来把代码区块包起来。</p>
-<p>要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以，例如，下面的输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这是一个普通段落：</div><div class="line"></div><div class="line">    这是一个代码区块。</div></pre></td></tr></table></figure>
-<p>Markdown 会转换成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;这是一个普通段落：&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;pre&gt;&lt;code&gt;这是一个代码区块。</div><div class="line">&lt;/code&gt;&lt;/pre&gt;</div></pre></td></tr></table></figure>
-<p>这个每行一阶的缩进（4 个空格或是 1 个制表符），都会被移除，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Here is an example of AppleScript:</div><div class="line"></div><div class="line">    tell application &quot;Foo&quot;</div><div class="line">        beep</div><div class="line">    end tell</div></pre></td></tr></table></figure>
-<p>会被转换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;</div><div class="line">    beep</div><div class="line">end tell</div><div class="line">&lt;/code&gt;&lt;/pre&gt;</div></pre></td></tr></table></figure>
-<p>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。</p>
-<p>在代码区块里面， <code>&amp;</code> 、 <code>&lt;</code> 和 <code>&gt;</code> 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，再加上缩进就可以了，剩下的 Markdown 都会帮你处理，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;footer&quot;&gt;</div><div class="line">    &amp;copy; 2004 Foo Corporation</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>会被转换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;</div><div class="line">    &amp;amp;copy; 2004 Foo Corporation</div><div class="line">&amp;lt;/div&amp;gt;</div><div class="line">&lt;/code&gt;&lt;/pre&gt;</div></pre></td></tr></table></figure>
-<p>代码区块中，一般的 Markdown 语法不会被转换，像是星号便只是星号，这表示你可以很容易地以 Markdown 语法撰写 Markdown 语法相关的文件。</p>
-<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line"></div><div class="line">***</div><div class="line"></div><div class="line">*****</div><div class="line"></div><div class="line">- - -</div><div class="line"></div><div class="line">---------------------------------------</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>Markdown 支持两种形式的链接语法： <em>行内式</em>和<em>参考式</em>两种形式。</p>
-<p>不管是哪一种，链接文字都是用 [方括号] 来标记。</p>
-<p>要建立一个<em>行内式</em>的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">This is [an example](http://example.com/ &quot;Title&quot;) inline link.</div><div class="line"></div><div class="line">[This link](http://example.net/) has no title attribute.</div></pre></td></tr></table></figure>
-<p>会产生：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;</div><div class="line">an example&lt;/a&gt; inline link.&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no</div><div class="line">title attribute.&lt;/p&gt;</div></pre></td></tr></table></figure>
-<p>如果你是要链接到同样主机的资源，你可以使用相对路径：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">See my [About](/about/) page for details.</div></pre></td></tr></table></figure>
-<p><em>参考式</em>的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is [an example][id] reference-style link.</div></pre></td></tr></table></figure>
-<p>你也可以选择性地在两个方括号中间加上一个空格：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is [an example] [id] reference-style link.</div></pre></td></tr></table></figure>
-<p>接着，在文件的任意处，你可以把这个标记的链接内容定义出来：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[id]: http://example.com/  &quot;Optional Title Here&quot;</div></pre></td></tr></table></figure>
-<p>链接内容定义的形式为：</p>
-<ul>
-<li>方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字</li>
-<li>接着一个冒号</li>
-<li>接着一个以上的空格或制表符</li>
-<li>接着链接的网址</li>
-<li>选择性地接着 title 内容，可以用单引号、双引号或是括弧包着</li>
-</ul>
-<p>下面这三种链接的定义都是相同：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[foo]: http://example.com/  &quot;Optional Title Here&quot;</div><div class="line">[foo]: http://example.com/  &apos;Optional Title Here&apos;</div><div class="line">[foo]: http://example.com/  (Optional Title Here)</div></pre></td></tr></table></figure>
-<p><strong>请注意：</strong>有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。</p>
-<p>链接网址也可以用尖括号包起来：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[id]: &lt;http://example.com/&gt;  &quot;Optional Title Here&quot;</div></pre></td></tr></table></figure>
-<p>你也可以把 title 属性放到下一行，也可以加一些缩进，若网址太长的话，这样会比较好看：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[id]: http://example.com/longish/path/to/resource/here</div><div class="line">    &quot;Optional Title Here&quot;</div></pre></td></tr></table></figure>
-<p>网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。</p>
-<p>链接辨别标签可以有字母、数字、空白和标点符号，但是并<em>不</em>区分大小写，因此下面两个链接是一样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[link text][a]</div><div class="line">[link text][A]</div></pre></td></tr></table></figure>
-<p><em>隐式链接标记</em>功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 “Google” 链接到 google.com，你可以简化成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Google][]</div></pre></td></tr></table></figure>
-<p>然后定义链接内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Google]: http://google.com/</div></pre></td></tr></table></figure>
-<p>由于链接文字可能包含空白，所以这种简化型的标记内也许包含多个单词：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Visit [Daring Fireball][] for more information.</div></pre></td></tr></table></figure>
-<p>然后接着定义链接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Daring Fireball]: http://daringfireball.net/</div></pre></td></tr></table></figure>
-<p>链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。</p>
-<p>下面是一个参考式链接的范例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">I get 10 times more traffic from [Google] [1] than from</div><div class="line">[Yahoo] [2] or [MSN] [3].</div><div class="line"></div><div class="line">  [1]: http://google.com/        &quot;Google&quot;</div><div class="line">  [2]: http://search.yahoo.com/  &quot;Yahoo Search&quot;</div><div class="line">  [3]: http://search.msn.com/    &quot;MSN Search&quot;</div></pre></td></tr></table></figure>
-<p>如果改成用链接名称的方式写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">I get 10 times more traffic from [Google][] than from</div><div class="line">[Yahoo][] or [MSN][].</div><div class="line"></div><div class="line">  [google]: http://google.com/        &quot;Google&quot;</div><div class="line">  [yahoo]:  http://search.yahoo.com/  &quot;Yahoo Search&quot;</div><div class="line">  [msn]:    http://search.msn.com/    &quot;MSN Search&quot;</div></pre></td></tr></table></figure>
-<p>上面两种写法都会产生下面的 HTML。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot;</div><div class="line">title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from</div><div class="line">&lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt;</div><div class="line">or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt;</div></pre></td></tr></table></figure>
-<p>下面是用行内式写的同样一段内容的 Markdown 文件，提供作为比较之用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;)</div><div class="line">than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or</div><div class="line">[MSN](http://search.msn.com/ &quot;MSN Search&quot;).</div></pre></td></tr></table></figure>
-<p>参考式的链接其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的却会增加到 176 个字元，如果是用纯 HTML 格式来写，会有 234 个字元，在 HTML 格式中，标签比文本还要多。</p>
-<p>使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。</p>
-<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>Markdown 使用星号（<code>*</code>）和底线（<code>_</code>）作为标记强调字词的符号，被 <code>*</code> 或 <code>_</code> 包围的字词会被转成用 <code>标签包围，用两个 `*` 或 `_` 包起来的话，则会被转成</code>，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*single asterisks*</div><div class="line"></div><div class="line">_single underscores_</div><div class="line"></div><div class="line">**double asterisks**</div><div class="line"></div><div class="line">__double underscores__</div></pre></td></tr></table></figure>
-<p>会转成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;em&gt;single asterisks&lt;/em&gt;</div><div class="line"></div><div class="line">&lt;em&gt;single underscores&lt;/em&gt;</div><div class="line"></div><div class="line">&lt;strong&gt;double asterisks&lt;/strong&gt;</div><div class="line"></div><div class="line">&lt;strong&gt;double underscores&lt;/strong&gt;</div></pre></td></tr></table></figure>
-<p>你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启标签，就要用什么符号结束。</p>
-<p>强调也可以直接插在文字中间：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">un*frigging*believable</div></pre></td></tr></table></figure>
-<p>但是<strong>如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号</strong>。</p>
-<p>如果要在文字前后直接插入普通的星号或底线，你可以用反斜线：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\*this text is surrounded by literal asterisks\*</div></pre></td></tr></table></figure>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>如果要标记一小段行内代码，你可以用反引号把它包起来（<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>Use the <code>printf()</code> function.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">会产生：</div></pre></td></tr></table></figure>
-<p>Use the <code>printf()</code> function.</p>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果要在代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段：</div></pre></td></tr></table></figure>
-<p><code>There is a literal backtick (`) here.</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这段语法会产生：</div></pre></td></tr></table></figure>
-<p><code>There is a literal backtick (`) here.</code></p>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">代码区段的起始和结束端都可以放入一个空白，起始端后面一个，结束端前面一个，这样你就可以在区段的一开始就插入反引号：</div></pre></td></tr></table></figure>
-<p>A single backtick in a code span: <code>` </code></p>
-<p>A backtick-delimited string in a code span: <code>`foo` </code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">会产生：</div></pre></td></tr></table></figure>
-<p>A single backtick in a code span: <code>`</code></p>
-
-<p>A backtick-delimited string in a code span: <code><code>foo</code></code></p>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在代码区段内，`&amp;` 和尖括号**都**会被自动地转成 HTML 实体，这使得插入 HTML 原始码变得很容易，Markdown 会把下面这段：</div></pre></td></tr></table></figure>
-<p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">转为：</div></pre></td></tr></table></figure>
-<p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">你也可以这样写：</div></pre></td></tr></table></figure>
-<p><code>&amp;#8212;</code> is the decimal-encoded equivalent of <code>&amp;mdash;</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">以产生：</div></pre></td></tr></table></figure>
-<p><code>&amp;#8212;</code> is the decimal-encoded<br>equivalent of <code>&amp;mdash;</code>.</p>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 图片</div><div class="line"></div><div class="line">很明显地，要在纯文字应用中设计一个「自然」的语法来插入图片是有一定难度的。</div><div class="line"></div><div class="line">Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： *行内式*和*参考式*。</div><div class="line"></div><div class="line">行内式的图片语法看起来像是：</div></pre></td></tr></table></figure>
-<p><img src="/path/to/img.jpg" alt="Alt text"></p>
-<p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">详细叙述如下：</div><div class="line"></div><div class="line">- 一个惊叹号 `!`</div><div class="line">- 接着一个方括号，里面放上图片的替代文字</div><div class="line">- 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 &apos;title&apos; 文字。</div><div class="line"></div><div class="line">参考式的图片语法则长得像这样：</div></pre></td></tr></table></figure>
-<p><img src="url/to/image" alt="Alt text" title="Optional title attribute"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">「id」是图片参考的名称，图片参考的定义方式则和连结参考一样：</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 `` 标签。</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">## 其它</div><div class="line"></div><div class="line">### 自动链接</div><div class="line"></div><div class="line">Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用尖括号包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：</div></pre></td></tr></table></figure>
-<p><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Markdown 会转为：</div></pre></td></tr></table></figure>
-<p><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">邮址的自动链接也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以糊弄一些不好的邮址收集机器人，例如：</div></pre></td></tr></table></figure>
-<p><a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#97;&#x64;&#x64;&#114;&#101;&#x73;&#x73;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#111;&#109;">&#97;&#x64;&#x64;&#114;&#101;&#x73;&#x73;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#111;&#109;</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Markdown 会转成：</div></pre></td></tr></table></figure>
-<p><a href="&#x6D;&#x61;i&#x6C;&#x74;&#x6F;:&#x61;&#x64;&#x64;&#x72;&#x65;
-&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6C;e&#x2E;&#99;&#111;
-&#109;">&#x61;&#x64;&#x64;&#x72;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;<br>&#109;&#x70;&#x6C;e&#x2E;&#99;&#111;&#109;</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在浏览器里面，这段字串（其实是 `[address@example.com](mailto:address@example.com)`）会变成一个可以点击的「address@example.com」链接。</div><div class="line"></div><div class="line">（这种作法虽然可以糊弄不少的机器人，但并不能全部挡下来，不过总比什么都不做好些。不管怎样，公开你的信箱终究会引来广告信件的。）</div><div class="line"></div><div class="line">### 反斜杠</div><div class="line"></div><div class="line">Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果（但不用 `` 标签），你可以在星号的前面加上反斜杠：</div></pre></td></tr></table></figure>
-<p>*literal asterisks*</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</div></pre></td></tr></table></figure>
-<p>\   反斜线<br>`   反引号</p>
-<ul>
-<li>星号<br>_   底线<br>{}  花括号<br>[]  方括号<br>()  括弧<h1 id="井字号"><a href="#井字号" class="headerlink" title="井字号"></a>井字号</h1></li>
-</ul>
-<ul>
-<li>加号</li>
-</ul>
-<ul>
-<li>减号<br>.   英文句点<br>!   惊叹号</li>
-</ul>
-<p>```</p>
-<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>感谢 <a href="https://twitter.com/#!/leafy7382" target="_blank" rel="external">leafy7382</a> 协助翻译，<a href="http://iamhlb.com/" target="_blank" rel="external">hlb</a>、<a href="http://twitter.com/randylien" target="_blank" rel="external">Randylien</a> 帮忙润稿，<a href="https://twitter.com/#!/ethantw" target="_blank" rel="external">ethantw</a> 的<a href="http://ethantw.net/projects/han/" target="_blank" rel="external">汉字标准格式・CSS Reset</a>， <a href="http://kidwm.net/" target="_blank" rel="external">WM</a> 回报文字错误。</p>
-<p>感谢 <a href="https://github.com/fenprace" target="_blank" rel="external">fenprace</a>，<a href="https://github.com/addv" target="_blank" rel="external">addv</a>。</p>
-<hr>
-<h2 id="Markdown-免费编辑器"><a href="#Markdown-免费编辑器" class="headerlink" title="Markdown 免费编辑器"></a>Markdown 免费编辑器</h2><p>Windows 平台</p>
-<ul>
-<li><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad</a></li>
-<li><a href="http://code52.org/DownmarkerWPF/" target="_blank" rel="external">MarkPad</a></li>
-</ul>
-<p>Linux 平台</p>
-<ul>
-<li><a href="http://sourceforge.net/p/retext/home/ReText/" target="_blank" rel="external">ReText</a></li>
-</ul>
-<p>Mac 平台</p>
-<ul>
-<li><a href="http://mouapp.com/" target="_blank" rel="external">Mou</a></li>
-</ul>
-<p>在线编辑器</p>
-<ul>
-<li><a href="http://markable.in/" target="_blank" rel="external">Markable.in</a></li>
-<li><a href="http://dillinger.io/" target="_blank" rel="external">Dillinger.io</a></li>
-</ul>
-<p>浏览器插件</p>
-<ul>
-<li><a href="https://chrome.google.com/webstore/detail/oknndfeeopgpibecfjljjfanledpbkog" target="_blank" rel="external">MaDe</a> (Chrome)</li>
-</ul>
-<p>高级应用</p>
-<ul>
-<li><a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text 2</a> + <a href="http://ttscoff.github.com/MarkdownEditing/" target="_blank" rel="external">MarkdownEditing</a> / <a href="http://lucifr.com/2012/07/12/markdownediting-for-sublime-text-2/" target="_blank" rel="external">教程</a></li>
-</ul>
-<p><em>*</em> 如有更好的 Markdown 免费编辑器推荐，请到<a href="https://gitcafe.com/riku/Markdown-Syntax-CN/tickets/1" target="_blank" rel="external">这里反馈</a>，谢谢！</p>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/02/22/b6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
